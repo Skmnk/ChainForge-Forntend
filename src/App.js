@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState,useEffect} from 'react';
+import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-router-dom';
 
+import Loading from './components/Loading';
+import NavBar from './components/NavBar';
+import Card from './components/Card';
+import SignUp from './pages/SignUp';
+import LogIn from './pages/LogIn';
+import About from './components/About';
+import OurTeam from './components/OurTeam';
+import Footer from './components/Footer';
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 2000); // Loading for 2 seconds
+}, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavBar />
+        {isLoading ? <Loading /> : (
+          <Routes>
+            {/* Route for Card page with About and OurTeam */}
+            <Route path="/" element={
+              <>
+                <Card />
+                <About />
+                <OurTeam />
+                <Footer />
+              </>
+            } />
+
+            <Route path="/signup" element={<SignUp />} />
+
+            <Route path="/login" element={<LogIn />} />
+          </Routes>
+        )}
+      </Router>
     </div>
   );
 }

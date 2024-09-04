@@ -1,0 +1,75 @@
+.signup-container, .login-container {
+    background: linear-gradient(145deg, #672280, #854fb0);
+    border-radius: 12px;
+    padding: 30px;
+    width: 350px;
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background-color: #f7f7f7;
+    color: #672280;
+    transition: background-color 0.3s ease;
+}
+
+form input:focus{
+    background-color: #e0e0e0;
+}
+
+form button {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #854fb0;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    /* transition: all 0.3s ease; */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+}
+
+form button:disabled {
+    background-color: #ccc;
+    color: white;
+    cursor: not-allowed;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin: 5px 0;
+}
+.link{
+    color: #ff6b6b;
+}
+
