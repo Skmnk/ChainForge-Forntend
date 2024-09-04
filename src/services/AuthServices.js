@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://chainforge-backend.onrender.com/';
 
 // Register User
 export const registerUser = async (name, email, password, confirmPassword) => {
     try {
-        const response = await axios.post(`http://localhost:5000/api/auth/register`, {
+        const response = await axios.post(`https://chainforge-backend.onrender.com/register`, {
             name,
             email,
             password,
@@ -22,7 +22,7 @@ export const registerUser = async (name, email, password, confirmPassword) => {
 export const loginUser = async (email, password) => {
     console.log(`trying to try ${email}`)
     try {
-        const response = await axios.post(`http://localhost:5000/api/auth/login`, {
+        const response = await axios.post(`https://chainforge-backend.onrender.com/login`, {
             email,
             password,
         });
